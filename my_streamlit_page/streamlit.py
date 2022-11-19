@@ -14,9 +14,10 @@ def load_image(image_file):
 
 def preprocess_image(image):
   #resize image
-#   image_resized = cv2.resize(image, dsize=(96, 96), interpolation=cv2.INTER_CUBIC)
+
+  #image_resized = Image.resize(image, dsize=(96, 96), interpolation=cv2.INTER_CUBIC)
   #reshape image
-  image_reshaped = image_resized.reshape(1,96,96,1)
+  image_reshaped = image.reshape(1,96,96,1)
   #scale image
   X = image_reshaped/255.
   return X
@@ -46,8 +47,10 @@ if image_file is not None:
   st.image(load_image(image_file),width=250)
 
   # convert img to np_array
-  img = Image .open(image_file)
-  img_np = np.array(img)[:,:,0]
+  with Image.open(image_file) as im:
+      im_resized = im.resize(96,96)
+
+  img_np = np.array(im_resized)[:,:,0]
   y, x = img_np.shape
 
   processed_img = preprocess_image(img_np)
