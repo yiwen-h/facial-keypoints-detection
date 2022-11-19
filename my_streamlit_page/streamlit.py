@@ -64,4 +64,4 @@ if image_file is not None:
   # st.write(keypoints * proportion)
   # st.write(keypoints)
 
-  plot_keypoints(processed_img, new_keypoints)
+  plot_keypoints(image_file, new_keypoints)
