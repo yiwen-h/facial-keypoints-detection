@@ -48,7 +48,7 @@ if image_file is not None:
 
   # convert img to np_array
   with Image.open(image_file) as im:
-      im_resized = im.resize(96,96)
+      im_resized = im.resize((96,96))
 
   img_np = np.array(im_resized)[:,:,0]
   y, x = img_np.shape
