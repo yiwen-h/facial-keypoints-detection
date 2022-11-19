@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 # import pickle
-import cv2
+# import cv2
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
 
@@ -12,9 +12,9 @@ def load_image(image_file):
 	img = Image.open(image_file)
 	return img
 
-def preprocess_image(image): 
+def preprocess_image(image):
   #resize image
-  image_resized = cv2.resize(image, dsize=(96, 96), interpolation=cv2.INTER_CUBIC)
+#   image_resized = cv2.resize(image, dsize=(96, 96), interpolation=cv2.INTER_CUBIC)
   #reshape image
   image_reshaped = image_resized.reshape(1,96,96,1)
   #scale image
@@ -62,4 +62,3 @@ if image_file is not None:
   # st.write(keypoints)
 
   plot_keypoints(img, new_keypoints)
-
